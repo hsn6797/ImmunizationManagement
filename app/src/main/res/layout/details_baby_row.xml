@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"    >
+
+
+        <LinearLayout
+            android:id="@+id/lablesLV"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/topRV"
+            android:paddingTop="16dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+
+            >
+            <TextView
+                android:id="@+id/vaccineNameTV"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/textcolorlite"
+                android:layout_toRightOf="@+id/babyDIV"
+                android:layout_below="@+id/babyNameDTV"
+                android:text="Vaccine"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/vaccineIsuueDateTV"
+
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/textcolorlite"
+                android:layout_toRightOf="@+id/babyDIV"
+                android:layout_below="@+id/babyNameDTV"
+                android:textAlignment="center"
+                android:text="Issue Date"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/vaccineStatusTV"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/textcolorlite"
+                android:layout_toRightOf="@+id/babyDIV"
+                android:layout_below="@+id/babyNameDTV"
+                android:text="Status"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+</RelativeLayout>

@@ -31,7 +31,7 @@ import java.util.Calendar;
 public class Main2Activity extends AppCompatActivity {
 
     private RunTimePermission rp;
-    public static final int INTERVAL= (30 * 1000);
+    public static final int INTERVAL= (60 * 1000)*59; // 59 minutes
 
 
 
@@ -100,7 +100,7 @@ public class Main2Activity extends AppCompatActivity {
         /** this gives us the time for the first trigger.  */
         Calendar cal = Calendar.getInstance();
         AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
-        long interval = 1000 * 60 * 5; // 5 minutes in milliseconds
+//        long interval = 1000 * 60 * 59; // 59 minutes in milliseconds
         Intent serviceIntent = new Intent(ctx, NotificationService.class);
         // make sure you **don't** use *PendingIntent.getBroadcast*, it wouldn't work
         PendingIntent servicePendingIntent =

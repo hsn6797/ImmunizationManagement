@@ -1,10 +1,12 @@
 package com.example.immunizationmanagement.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -71,6 +73,7 @@ public class AddVaccineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vaccine);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         init();
 
@@ -85,6 +88,8 @@ public class AddVaccineActivity extends AppCompatActivity {
             if(action.equals("Edit")){
                 // change the Title text to Edit Vaccine
                 titleText.setText("Edit Vaccine");
+                AddVaccineActivity.this.setTitle("Edit Vaccine");
+
 
                 // Get Object from Database
                 vaccine = ds.getVaccine(id);
@@ -97,6 +102,8 @@ public class AddVaccineActivity extends AppCompatActivity {
         }else{
             // change the Title text to Add Vaccine
             titleText.setText("Add Vaccine");
+            AddVaccineActivity.this.setTitle("Add Vaccine");
+
 
             vaccine = new Vaccine();
         }
@@ -123,6 +130,17 @@ public class AddVaccineActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

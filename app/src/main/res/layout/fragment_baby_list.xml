@@ -27,7 +27,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:background="@color/colorAccent"
+        android:outlineAmbientShadowColor="@color/colorButton"
+        android:backgroundTint="@color/colorButton"
         app:srcCompat="@drawable/ic_outline_add"/>
 
 

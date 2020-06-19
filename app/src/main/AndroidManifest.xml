@@ -21,10 +21,14 @@
         <activity
             android:name=".Activities.SettingsActivity"
             android:label="@string/title_activity_settings"></activity>
-        <activity android:name=".Activities.BDetailsActivity" />
-        <activity android:name=".Activities.Main2Activity" />
-        <activity android:name=".Activities.AddVaccineActivity" />
-        <activity android:name=".Activities.AddBabyActivity" />
+        <activity android:name=".Activities.BDetailsActivity"
+            android:label="Baby Information"/>
+        <activity android:name=".Activities.Main2Activity"
+            android:label="Dashboard"/>
+        <activity android:name=".Activities.AddVaccineActivity"
+            android:label="Add Vaccine"/>
+        <activity android:name=".Activities.AddBabyActivity"
+            android:label="Add Baby"/>
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

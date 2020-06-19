@@ -1,5 +1,6 @@
 package com.example.immunizationmanagement.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -12,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -242,6 +244,7 @@ public class AddBabyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_baby);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         init();
 
@@ -256,6 +259,8 @@ public class AddBabyActivity extends AppCompatActivity {
 
                 // change the Title text to Edit baby
                 titleText.setText("Edit Baby");
+                AddBabyActivity.this.setTitle("Edit Baby");
+
 
                 // Get baby Object from Database
                 baby = ds.getBaby(id);
@@ -292,6 +297,8 @@ public class AddBabyActivity extends AppCompatActivity {
         }else{
             // change the Title text to Add baby
             titleText.setText("Add Baby");
+            AddBabyActivity.this.setTitle("Add Baby");
+
             baby = new Baby();
         }
 
@@ -365,10 +372,16 @@ public class AddBabyActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
 
-
-
-
+        return super.onOptionsItemSelected(item);
     }
 }

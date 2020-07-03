@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
+import com.example.immunizationmanagement.Activities.BDetailsActivity;
 import com.example.immunizationmanagement.Activities.Main2Activity;
 import com.example.immunizationmanagement.DataBase.DataSource;
 import com.example.immunizationmanagement.Model.Baby;
@@ -47,6 +48,7 @@ public class NotificationService extends IntentService {
         List<BabyVaccine> bvList = ds.getAllBabyVaccine();
 
         int days = 0;
+
         try {
             // Get days value from Shared Preferences
             String daysStr = PreferenceManager.getDefaultSharedPreferences(this).getString("before", null);
@@ -55,15 +57,8 @@ public class NotificationService extends IntentService {
             Log.d(TAG, "Days parsing Exception: "+ex.getMessage());
         }
 
-        Log.d(TAG, "Days before: "+days);
-
         for(int i = 0; i < bvList.size(); i++){
             BabyVaccine bv = bvList.get(i);
-
-            // if bv object date matches the current date
-//            LocalDate vaccinationDate = Function.timestampToDate(bv.getIssueDate());
-//            LocalDate currentDate = Function.timestampToDate(System.currentTimeMillis());
-
 
             if(Function.compareDate(bv.getIssueDate(),days)){
 
@@ -73,15 +68,7 @@ public class NotificationService extends IntentService {
                     sendNotification(b,v,bv);
                 }
 
-
-//                Log.d(TAG, b.toString());
-//                Log.d(TAG, v.toString());
-//
-//                Log.d(TAG, "onHandleIntent: "+ Function.timestampToDate(bv.getIssueDate()));
-//                Log.d(TAG, "onHandleIntent: "+ Function.timestampToDate(System.currentTimeMillis()));
             }
-
-
 
         }
 
@@ -110,8 +97,9 @@ public class NotificationService extends IntentService {
         //create notification chanel for Android oreo 8 and above
         createNotificationChannel();
 
-        Intent intent = new Intent(this, Main2Activity.class);
-        intent.putExtra("fromNotification", "notify_vaccine");
+        Intent intent = new Intent(this, BDetailsActivity.class);
+//        intent.putExtra("fromNotification", "notify_vaccine");
+        intent.putExtra("Id",b.getId());
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         Intent intentSnooze = new Intent(this, NotificationPublisher.class);

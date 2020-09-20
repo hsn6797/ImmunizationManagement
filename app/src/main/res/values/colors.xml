@@ -7,8 +7,7 @@
     <color name="colorbackground">#08599c</color>
     <color name="colorButton">#1A68AF</color>
     <color name="colorCard">#6306477C</color>
-
-
+    
     <color name="coloriconlite">#FFF</color>
     <color name="coloricondark">#03DAC5</color>
 
@@ -16,7 +15,5 @@
 
     <color name="textcolorlite">#DCDCDC</color>
     <color name="textcolordark">#2C2B2B</color>
-
-
 
 </resources>

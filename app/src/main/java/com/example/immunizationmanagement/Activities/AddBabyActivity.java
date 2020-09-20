@@ -34,6 +34,7 @@ import com.example.immunizationmanagement.Utills.SString;
 
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddBabyActivity extends AppCompatActivity {
 
@@ -328,6 +329,14 @@ public class AddBabyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                long dob = Function.DateToTimeStamp(mDay,mMonth,mYear);
+                Date current = new Date();
+                if(dob > current.getTime() ){
+                    Toast.makeText(AddBabyActivity.this,"You selected the future Date",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
                 if(babyName.getText().length() == 0){
                     Toast.makeText(AddBabyActivity.this,"Enter baby name",Toast.LENGTH_SHORT).show();
                     return;
@@ -336,10 +345,6 @@ public class AddBabyActivity extends AppCompatActivity {
                     Toast.makeText(AddBabyActivity.this,"Select baby Image",Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                long dob = Function.DateToTimeStamp(mDay,mMonth,mYear);
-
-
 
                 baby.setName(SString.toTitleCase(babyName.getText().toString().trim()));
                 baby.setDob(dob);

@@ -2,6 +2,7 @@ package com.example.immunizationmanagement.Adapters;
 
 import android.content.Context;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,8 @@ public class BabyDetailListAdapter extends RecyclerView.Adapter<BabyDetailListAd
 
         holder.vaccineName.setText(v.getName());
         holder.vaccineIssueDate.setText(Function.timestampToString(bv.getIssueDate()));
+        Log.d("-----------> ", "BD Adapter: "+Function.timestampToDTString(bv.getSnoozAt()));
+
 
         if(bv.getStatus() == Status.S){
             holder.vaccineStatus.setText("Snooze ");

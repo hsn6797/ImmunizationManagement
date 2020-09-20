@@ -31,7 +31,8 @@ import java.util.Calendar;
 public class Main2Activity extends AppCompatActivity {
 
     private RunTimePermission rp;
-    public static final int INTERVAL= (60 * 1000)*60; // 1 hour
+//    public static final int INTERVAL= (60 * 1000)*60; // 1 hour
+    public static final int INTERVAL= (30*1000); // 30 secs
 
 
 

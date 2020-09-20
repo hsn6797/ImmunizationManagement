@@ -57,6 +57,7 @@ public class ItemsTable {
     public static final String COLUMN_VID_BV = "v_id";
     public static final String COLUMN_ISSUE_DATE_BV = "issueDate";
     public static final String COLUMN_STATUS_BV = "status";
+    public static final String COLUMN_SNOOZAT_BV = "snoozAt";
 
 
     public static final String SQL_CREATE_BV =
@@ -65,7 +66,8 @@ public class ItemsTable {
                     COLUMN_BID_BV + " INTEGER, " +
                     COLUMN_VID_BV + " INTEGER, " +
                     COLUMN_ISSUE_DATE_BV + " LONG, " +
-                    COLUMN_STATUS_BV + "   TEXT " + ");";
+                    COLUMN_STATUS_BV + " TEXT, " +
+                    COLUMN_SNOOZAT_BV + "   LONG " + ");";
 
 
     public static final String SQL_DELETE_BV =
@@ -73,6 +75,6 @@ public class ItemsTable {
 
 
     public static final String[] ALL_COLUMNS_BV =
-            {COLUMN_ID_BV, COLUMN_BID_BV, COLUMN_VID_BV, COLUMN_ISSUE_DATE_BV,COLUMN_STATUS_BV};
+            {COLUMN_ID_BV, COLUMN_BID_BV, COLUMN_VID_BV, COLUMN_ISSUE_DATE_BV,COLUMN_STATUS_BV,COLUMN_SNOOZAT_BV};
 
 }

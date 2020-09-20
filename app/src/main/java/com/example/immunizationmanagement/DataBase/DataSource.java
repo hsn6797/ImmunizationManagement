@@ -174,6 +174,7 @@ public class DataSource {
             values.put(ItemsTable.COLUMN_VID_BV,item.getV_id());
             values.put(ItemsTable.COLUMN_ISSUE_DATE_BV,item.getIssueDate());
             values.put(ItemsTable.COLUMN_STATUS_BV,item.getStatus().toString());
+            values.put(ItemsTable.COLUMN_SNOOZAT_BV,item.getSnoozAt());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -194,7 +195,8 @@ public class DataSource {
                         cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_BID_BV)),
                         cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_VID_BV)),
                         cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_ISSUE_DATE_BV)),
-                        Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV)))
+                        Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV))),
+                        cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_SNOOZAT_BV))
                         );
                 dataItems.add(item);
             }
@@ -217,7 +219,9 @@ public class DataSource {
                         cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_BID_BV)),
                         cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_VID_BV)),
                         cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_ISSUE_DATE_BV)),
-                        Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV)))
+                        Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV))),
+                        cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_SNOOZAT_BV))
+
                 );
                 dataItems.add(item);
             }
@@ -241,7 +245,9 @@ public class DataSource {
                         cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_BID_BV)),
                         cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_VID_BV)),
                         cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_ISSUE_DATE_BV)),
-                        Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV)))
+                        Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV))),
+                        cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_SNOOZAT_BV))
+
                 );
                 dataItems.add(item);
             }
@@ -264,8 +270,10 @@ public class DataSource {
                     cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_BID_BV)),
                     cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_VID_BV)),
                     cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_ISSUE_DATE_BV)),
-                    Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV)))
-            );
+                    Function.checkStatus(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_STATUS_BV))),
+                    cursor.getLong(cursor.getColumnIndex(ItemsTable.COLUMN_SNOOZAT_BV))
+
+             );
         }
 
         return item;

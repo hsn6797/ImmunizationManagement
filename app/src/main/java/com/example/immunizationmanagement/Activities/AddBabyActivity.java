@@ -329,12 +329,15 @@ public class AddBabyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //TODO- Comment 2
+                //---------------------
                 long dob = Function.DateToTimeStamp(mDay,mMonth,mYear);
                 Date current = new Date();
                 if(dob > current.getTime() ){
                     Toast.makeText(AddBabyActivity.this,"You selected the future Date",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //-----------------------
 
 
                 if(babyName.getText().length() == 0){

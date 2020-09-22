@@ -72,8 +72,7 @@ public class Function {
                 +" - "+ comparingDate.getMonth()
                 +" - "+ comparingDate.getDate()
                 +" - "+ comparingDate.getHours()
-                +" - "+ comparingDate.getMinutes()
-        );
+                +" - "+ comparingDate.getMinutes());
         if(
 //                Year == comparingDate.getYear() &&
                 Month == comparingDate.getMonth() &&

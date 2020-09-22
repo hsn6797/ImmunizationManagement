@@ -2,14 +2,17 @@ package com.example.immunizationmanagement.Model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.widget.Toast;
 
 import com.example.immunizationmanagement.Activities.AddBabyActivity;
 import com.example.immunizationmanagement.DataBase.DataSource;
 import com.example.immunizationmanagement.DataBase.ItemsTable;
+import com.example.immunizationmanagement.Utills.Function;
 import com.example.immunizationmanagement.Utills.ImageFactory;
 
 import java.lang.reflect.Field;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Baby {
@@ -135,13 +138,21 @@ public class Baby {
 
             Vaccine vaccine = vlist.get(i);
             long newDate = this.addDaystoDob(vaccine.getDaysAfter());
+
+            Status status = Status.P;
+
+            //TODO- Comment 1
+            //---------------------
+            Date current = new Date();
+            if(newDate < current.getTime()) status = Status.D;
+            //-----------------------
+
             BabyVaccine bv = new BabyVaccine(
                     this.id,
                     vaccine.getId(),
                     newDate,
-                    Status.P
+                    status
             );
-
             ds.addBabyVaccine(bv);
         }
 

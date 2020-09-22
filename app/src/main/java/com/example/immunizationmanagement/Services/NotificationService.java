@@ -18,7 +18,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
 import com.example.immunizationmanagement.Activities.BDetailsActivity;
-import com.example.immunizationmanagement.Activities.Main2Activity;
 import com.example.immunizationmanagement.DataBase.DataSource;
 import com.example.immunizationmanagement.Model.Baby;
 import com.example.immunizationmanagement.Model.BabyVaccine;
@@ -28,8 +27,6 @@ import com.example.immunizationmanagement.Notification.NotificationPublisher;
 import com.example.immunizationmanagement.R;
 import com.example.immunizationmanagement.Utills.Function;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 
@@ -75,8 +72,8 @@ public class NotificationService extends IntentService {
                     break;
                 }
             }
-            if(notificationExists) continue;
 
+            if(notificationExists) continue;
             boolean showNotification = false;
             if(bv.getStatus() == Status.P && Function.compareDate(bv.getIssueDate(),days)){
                 showNotification = true;
